@@ -1,0 +1,460 @@
+🎵 Projeto Sonora — Fase 01: Fundamentos de POO
+📌 Sobre o projeto
+
+O Sonora é uma plataforma de streaming de músicas, inspirada em serviços como o Spotify, porém com foco apenas na implementação do motor do sistema.
+
+O projeto será desenvolvido ao longo do semestre, evoluindo a cada fase. Cada nova fase parte da anterior, mas deve ser mantida como um projeto independente.
+
+Fluxo de desenvolvimento
+Clonar a pasta/projeto da fase anterior para uma nova pasta.
+Exemplo: sonora-fase01 → sonora-fase02
+A nova fase deve ser um projeto/repositório independente.
+A fase anterior deve permanecer intacta.
+Implementar os novos requisitos sem quebrar o que já funcionava.
+
+Importante: esta é a Fase 01, portanto o projeto começa do zero. A pasta deve se chamar sonora-fase01.
+
+Nesta primeira fase, o foco é construir uma boa estrutura utilizando Programação Orientada a Objetos (POO).
+
+As validações de dados e o tratamento de erros serão trabalhados na Fase 02, quando serão estudadas exceções.
+
+🎯 Objetivos da Fase 01
+
+Nesta fase, o objetivo é praticar:
+
+Classes;
+Encapsulamento;
+Atributos private;
+Construtores;
+this;
+Getters e setters;
+Membros estáticos (static);
+Sobrecarga de métodos;
+Arrays de tamanho fixo;
+Entrada de dados com Scanner.
+
+A proposta é desenvolver o sistema sem coleções e sem herança, pois esses conteúdos ainda não foram abordados.
+
+🚫 Restrições
+Pode utilizar
+Classes;
+Atributos encapsulados (private);
+Construtores;
+this;
+Getters e setters;
+static;
+Sobrecarga de métodos;
+Arrays de tamanho fixo;
+Scanner.
+Não pode utilizar
+ArrayList;
+List;
+Map;
+Set;
+Qualquer outra coleção do java.util para armazenar os dados;
+Herança (extends);
+Interfaces (implements);
+Leitura ou escrita de arquivos;
+Bibliotecas externas.
+Exceções
+
+Nesta fase, não é necessário utilizar:
+
+throw
+try
+catch
+finally
+
+
+Quando uma operação não puder ser realizada, o resultado deve ser sinalizado pelo valor de retorno do método.
+
+O tratamento completo com exceções será desenvolvido na Fase 02.
+
+🏗️ Estrutura do sistema
+
+O sistema é composto por cinco classes principais:
+
+Musica
+Usuario
+Playlist
+Plataforma
+App
+🎵 1. Classe Musica
+
+Representa uma faixa do acervo musical.
+
+Atributos
+Atributo	Tipo	Descrição
+id	int	Identificador único e sequencial, gerado automaticamente
+titulo	String	Título da música
+artista	String	Nome do artista
+duracaoSegundos	int	Duração da música em segundos
+reproducoes	int	Quantidade de vezes que a música foi reproduzida
+
+O id deve ser gerado por meio de um contador static. O primeiro cadastro deve receber o ID 1.
+
+A quantidade de reproduções começa em 0 e só pode ser alterada pelo método reproduzir().
+
+Métodos obrigatórios
+public Musica(String titulo, String artista, int duracaoSegundos)
+
+public int getId()
+
+public String getTitulo()
+
+public String getArtista()
+
+public int getDuracaoSegundos()
+
+public int getReproducoes()
+
+public void reproduzir()
+
+public String getDuracaoFormatada()
+
+Regras
+Não deve existir setId() público.
+Não deve existir setReproducoes() público.
+reproduzir() incrementa reproducoes em 1.
+getDuracaoFormatada() deve retornar a duração no formato mm:ss.
+Exemplos
+Segundos	Resultado
+354	05:54
+65	01:05
+600	10:00
+👤 2. Classe Usuario
+
+Representa um usuário da plataforma.
+
+Atributos
+Atributo	Tipo	Descrição
+id	int	Identificador único e sequencial
+nome	String	Nome do usuário
+email	String	E-mail do usuário
+
+O Usuario deve possuir um contador static próprio, independente do contador utilizado pela classe Musica.
+
+Métodos obrigatórios
+public Usuario(String nome, String email)
+
+public int getId()
+
+public String getNome()
+
+public String getEmail()
+
+
+Não deve existir setId() público.
+
+🎶 3. Classe Playlist
+
+Representa uma playlist pertencente a um usuário.
+
+A playlist deve possuir capacidade fixa de 100 músicas, utilizando um array.
+
+Métodos obrigatórios
+public Playlist(String nome, Usuario dono)
+
+public String getNome()
+
+public Usuario getDono()
+
+public int getQuantidade()
+
+public boolean adicionar(Musica musica)
+
+public Musica getNaPosicao(int indice)
+
+public boolean removerNaPosicao(int indice)
+
+public int getDuracaoTotalSegundos()
+
+public void reproduzirTudo()
+
+Regras
+adicionar(Musica musica)
+
+Retorna:
+
+true → música adicionada com sucesso;
+false → música nula ou playlist cheia.
+getNaPosicao(int indice)
+
+Retorna:
+
+A música correspondente à posição;
+null caso o índice seja inválido.
+removerNaPosicao(int indice)
+
+Retorna:
+
+true → música removida;
+false → índice inválido.
+
+Ao remover uma música, o array deve ser reorganizado para não deixar espaços vazios.
+
+Exemplo:
+
+Antes:
+[Musica A, Musica B, Musica C, Musica D]
+
+Remover posição 1:
+
+Depois:
+[Musica A, Musica C, Musica D]
+
+Outras regras
+Uma mesma música pode estar em várias playlists.
+As playlists devem armazenar a mesma referência da música.
+getDuracaoTotalSegundos() deve somar a duração de todas as músicas.
+reproduzirTudo() deve chamar reproduzir() em cada música da playlist.
+🖥️ 4. Classe Plataforma
+
+É a classe responsável pelo gerenciamento central do sistema.
+
+A plataforma deve armazenar:
+
+Até 500 músicas;
+Até 500 usuários.
+
+Cada grupo deve ser armazenado em seu próprio array.
+
+Métodos obrigatórios
+public boolean cadastrarMusica(Musica musica)
+
+public boolean cadastrarUsuario(Usuario usuario)
+
+public Musica buscarMusicaPorId(int id)
+
+public Musica buscarMusica(String titulo)
+
+public int getTotalMusicas()
+
+public int getTotalUsuarios()
+
+Regras
+
+cadastrarMusica():
+
+Retorna false se a música for null;
+Retorna false se o acervo estiver cheio;
+Retorna true quando o cadastro for realizado.
+
+cadastrarUsuario():
+
+Retorna false se o usuário for null;
+Retorna false se o limite de usuários for atingido;
+Retorna true quando o cadastro for realizado.
+
+As buscas devem retornar null quando nenhum resultado for encontrado.
+
+Sobrecarga
+
+As buscas devem utilizar sobrecarga de métodos:
+
+public Musica buscarMusicaPorId(int id)
+
+public Musica buscarMusica(String titulo)
+
+
+Não deve ser criado um método como:
+
+buscarMusicaPorTitulo()
+
+▶️ 5. Classe App
+
+A classe App contém o método:
+
+public static void main(String[] args)
+
+
+Ela funciona como cliente do sistema e deve apresentar um menu de console para integrar as funcionalidades implementadas.
+
+Como ainda não existe leitura de arquivos, algumas músicas podem ser criadas diretamente no início do main() para facilitar os testes.
+
+Menu mínimo
+=== Sonora ===
+1 - Cadastrar música manualmente
+2 - Cadastrar usuário
+3 - Criar playlist e adicionar músicas
+4 - Buscar música por id
+5 - Buscar música por título
+6 - Reproduzir uma música
+7 - Listar acervo
+0 - Sair
+
+
+O menu pode ser expandido com outras funcionalidades.
+
+Dica
+
+Para evitar que o programa seja interrompido quando o usuário digitar texto no lugar de um número, pode-se utilizar:
+
+Scanner.hasNextInt()
+
+
+O tratamento completo de entradas inválidas com try/catch será desenvolvido na Fase 02.
+
+✅ Comportamentos obrigatórios
+
+O sistema deve demonstrar os seguintes comportamentos:
+
+1. IDs únicos
+
+Cadastrar três músicas deve gerar:
+
+Música 1 → ID 1
+Música 2 → ID 2
+Música 3 → ID 3
+
+
+Cadastrar dois usuários deve gerar:
+
+Usuário 1 → ID 1
+Usuário 2 → ID 2
+
+
+Os contadores de Musica e Usuario devem ser independentes.
+
+2. Encapsulamento
+
+Todos os atributos devem ser private.
+
+Não deve ser possível alterar diretamente:
+
+id;
+reproducoes.
+
+Não devem existir setters públicos para esses atributos.
+
+3. Duração formatada
+
+Os seguintes resultados devem ser obtidos:
+
+354 → 05:54
+65  → 01:05
+600 → 10:00
+
+4. Array contíguo
+
+Ao remover uma música do meio de uma playlist, as músicas seguintes devem avançar uma posição.
+
+Não pode existir um "buraco" no array.
+
+5. Sinalização por retorno
+
+Adicionar uma música em uma playlist cheia deve:
+
+retornar false
+
+
+e não interromper o programa.
+
+Uma busca sem resultado deve:
+
+retornar null
+
+6. Sobrecarga
+
+As duas formas de busca devem coexistir:
+
+buscarMusicaPorId(int id)
+
+buscarMusica(String titulo)
+
+🧪 Roteiro de demonstração
+
+O App deve permitir demonstrar os seguintes cenários:
+
+Cadastrar três músicas e listar o acervo, mostrando os IDs 1, 2 e 3.
+Reproduzir uma música três vezes e mostrar getReproducoes() retornando 3.
+Demonstrar getDuracaoFormatada() com 354, 65 e 600 segundos.
+Cadastrar um usuário, criar uma playlist para ele, adicionar músicas e mostrar:
+getQuantidade();
+getDuracaoTotalSegundos().
+Encher uma playlist com 100 músicas e tentar adicionar a 101ª.
+O método deve retornar false;
+A quantidade deve continuar em 100.
+Remover uma música do meio da playlist e verificar que as posições seguintes foram reorganizadas.
+Buscar uma música por um ID existente.
+Buscar uma música por um ID inexistente e verificar que o resultado é null.
+Buscar uma música pelo título utilizando a versão sobrecarregada do método.
+Executar reproduzirTudo() e verificar que a quantidade de reproduções de todas as músicas aumentou.
+
+Sugestão: manter este roteiro disponível no README facilita a demonstração e a conferência dos requisitos durante a correção.
+
+📦 Entregáveis
+
+Ao final da Fase 01, devem ser entregues:
+
+Código-fonte do projeto na pasta:
+sonora-fase01
+
+Um diagrama de classes UML contendo as cinco classes:
+Musica
+Usuario
+Playlist
+Plataforma
+App
+
+O diagrama deve apresentar os principais atributos e métodos, utilizando a visibilidade UML:
+
+- privado
++ público
+
+
+O diagrama pode ser produzido em uma ferramenta de modelagem ou desenhado à mão, desde que esteja legível.
+
+🚀 Fase 02
+
+A Fase 02 partirá deste projeto.
+
+Entre os novos conteúdos, serão trabalhados:
+
+Validação nos construtores e setters;
+Validação de dados, como títulos não vazios e durações válidas;
+Uso de throw para impedir objetos em estados inválidos;
+Substituição de algumas sinalizações por retorno por exceções;
+Tratamento de entradas inválidas utilizando try/catch;
+Discussão sobre quando utilizar retorno e quando utilizar exceções.
+
+Por isso, é importante manter este projeto bem estruturado. A Fase 02 será construída a partir desta base.
+
+⚠️ Erros comuns
+
+Evite os seguintes problemas:
+
+Esquecer o static no contador de IDs;
+Utilizar o mesmo contador para Musica e Usuario;
+Deixar atributos públicos;
+Criar setId() ou setReproducoes() públicos;
+Deixar espaços vazios no array após remover uma música;
+Permitir que uma playlist ultrapasse 100 músicas;
+Estourar o programa ao tentar adicionar uma música em uma playlist cheia;
+Criar métodos de busca com nomes diferentes em vez de utilizar sobrecarga;
+Retornar valores incorretos para buscas que não encontram resultados;
+Implementar getDuracaoFormatada() sem o zero à esquerda.
+Exemplo incorreto
+5:54
+
+Exemplo correto
+05:54
+
+📚 Resumo dos requisitos
+Classe	Responsabilidade principal
+Musica	Representar músicas e controlar reproduções
+Usuario	Representar usuários da plataforma
+Playlist	Armazenar e gerenciar até 100 músicas
+Plataforma	Gerenciar até 500 músicas e 500 usuários
+App	Executar o sistema e fornecer o menu de interação
+🎓 Disciplina
+
+Programação Orientada a Objetos
+
+Universidade Regional de Blumenau — FURB
+Centro de Ciências Exatas e Naturais
+Departamento de Sistemas e Computação
+
+Professor: André Felipe Bürger
+
+Projeto: Sonora — Fase 01: Fundamentos de POO
