@@ -1,5 +1,6 @@
 package SonoraV2Lista04;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -8,47 +9,49 @@ public class App {
         Plataforma plataforma = new Plataforma();
 
         boolean continuar = true;
-
-        while (continuar) {
-            int opcao = 0;
-            exibirMenu();
-            try {
-                opcao = Integer.parseInt(scanner.nextLine());
-                break;
-            } catch (NumberFormatException e) {
-                System.out.println("Opção inserida é inválida! Por favor insira um número");
+        try {
+            while (continuar) {
+                int opcao = 0;
+                exibirMenu();
+                try {
+                    opcao = Integer.parseInt(scanner.nextLine());
+                } catch (NumberFormatException e) {
+                    System.out.println("Opção inserida é inválida! Por favor insira um número");
+                    continue;
+                }
+                switch (opcao) {
+                    case 1:
+                        cadastrarMusica(scanner, plataforma);
+                        break;
+                    case 2:
+                        cadastrarUsuario(scanner, plataforma);
+                        break;
+                    case 3:
+                        criarPlaylistEAdicionar(scanner, plataforma);
+                        break;
+                    case 4:
+                        buscarMusicaPorId(scanner, plataforma);
+                        break;
+                    case 5:
+                        buscarMusicaPorTitulo(scanner, plataforma);
+                        break;
+                    case 6:
+                        reproduzirMusica(scanner, plataforma);
+                        break;
+                    case 7:
+                        listarAcervo(plataforma);
+                        break;
+                    case 0:
+                        continuar = false;
+                        break;
+                    default:
+                        System.out.println("Opção inválida.");
+                }
             }
-            switch (opcao) {
-                case 1:
-                    cadastrarMusica(scanner, plataforma);
-                    break;
-                case 2:
-                    cadastrarUsuario(scanner, plataforma);
-                    break;
-                case 3:
-                    criarPlaylistEAdicionar(scanner, plataforma);
-                    break;
-                case 4:
-                    buscarMusicaPorId(scanner, plataforma);
-                    break;
-                case 5:
-                    buscarMusicaPorTitulo(scanner, plataforma);
-                    break;
-                case 6:
-                    reproduzirMusica(scanner, plataforma);
-                    break;
-                case 7:
-                    listarAcervo(plataforma);
-                    break;
-                case 0:
-                    continuar = false;
-                    System.out.println("Encerrando o Sonora...");
-                    break;
-                default:
-                    System.out.println("Opção inválida.");
-            }
+        } finally {
+            System.out.println("Fechando o sonora!");//provando que o finally sempre executa
+            scanner.close();
         }
-        scanner.close();
     }
 
     private static void exibirMenu() {
@@ -73,34 +76,40 @@ public class App {
         int duracao = scanner.hasNextInt() ? scanner.nextInt() : 0;
         scanner.nextLine();
 
-        Musica musica = new Musica(titulo, artista, duracao);
-        boolean ok = plataforma.cadastrarMusica(musica);
-        System.out.println(ok
-                ? "Música cadastrada com id " + musica.getId()
-                : "Não foi possível cadastrar a música.");
+        try {
+            Musica musica = new Musica(titulo, artista, duracao);
+            plataforma.cadastrarMusica(musica);
+            System.out.println("Música cadastrada com id " + musica.getId());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Não foi possível cadastrar a música!" + e.getMessage());
+
+        }
     }
 
     private static void cadastrarUsuario(Scanner scanner, Plataforma plataforma) {
+        try{
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
         System.out.print("Email: ");
         String email = scanner.nextLine();
 
         Usuario usuario = new Usuario(nome, email);
-        boolean usuarioCadastrado = plataforma.cadastrarUsuario(usuario);
-        System.out.println(usuarioCadastrado
-                ? "Usuário cadastrado com id " + usuario.getId()
-                : "Não foi possível cadastrar o usuário.");
-    }
+        plataforma.cadastrarUsuario(usuario);
+        System.out.println("Usuário cadastrado com id " + usuario.getId());
+        } catch(IllegalArgumentException e) {
+            System.out.println("Não foi possível cadastrar o usuário. "+ e.getMessage());
+        }
+}
 
-    private static void criarPlaylistEAdicionar(Scanner scanner, Plataforma plataforma) {
-        System.out.print("Nome da playlist: ");
-        String nomePlaylist = scanner.nextLine();
-        System.out.print("Nome do usuário dono: ");
-        String nomeUsuario = scanner.nextLine();
-        System.out.print("Email do usuário dono: ");
-        String emailUsuario = scanner.nextLine();
+  private static void criarPlaylistEAdicionar(Scanner scanner, Plataforma plataforma) {
+    System.out.print("Nome da playlist: ");
+    String nomePlaylist = scanner.nextLine();
+    System.out.print("Nome do usuário dono: ");
+    String nomeUsuario = scanner.nextLine();
+    System.out.print("Email do usuário dono: ");
+    String emailUsuario = scanner.nextLine();
 
+    try {
         Usuario dono = new Usuario(nomeUsuario, emailUsuario);
         plataforma.cadastrarUsuario(dono);
 
@@ -123,7 +132,24 @@ public class App {
 
         System.out.println("Playlist '" + playlist.getNome() + "' criada com " + playlist.getQuantidade()
                 + " música(s), duração total: " + playlist.getDuracaoTotalSegundos() + "s");
+
+        System.out.print("Deseja consultar uma posição da playlist? Digite o índice (-1 para pular): ");
+        int indice = scanner.hasNextInt() ? scanner.nextInt() : -1;
+        scanner.nextLine();
+
+        if (indice != -1) {
+            try {
+                Musica musicaNaPosicao = playlist.getNaPosicao(indice);
+                System.out.println("Música na posição " + indice + ": " + formatarMusica(musicaNaPosicao));
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("Posição inválida! " + e.getMessage());
+            }
+        }
+
+    } catch (IllegalArgumentException e) {
+        System.out.println("Não foi possível criar a playlist! " + e.getMessage());
     }
+}
 
     private static void buscarMusicaPorId(Scanner scanner, Plataforma plataforma) {
         System.out.print("Id da música: ");
@@ -142,27 +168,27 @@ public class App {
         System.out.println(musica != null ? formatarMusica(musica) : "Música não encontrada.");
     }
 
-    private static void reproduzirMusica(Scanner scanner, Plataforma plataforma) {
-        System.out.print("Id da música a reproduzir: ");
-        int id = scanner.hasNextInt() ? scanner.nextInt() : -1;
-        scanner.nextLine();
-
-        Musica musica = plataforma.buscarMusicaPorId(id);
-        if (musica != null) {
+    private static void reproduzirMusica(Scanner scanner, Plataforma plataforma) {// falta try/catch
+        try {
+            System.out.print("Id da música a reproduzir: ");
+            int id = scanner.nextInt();
+            Musica musica = plataforma.buscarMusicaPorId(id);
             musica.reproduzir();
             System.out.println("Reproduzida! Total de reproduções: " + musica.getReproducoes());
-        } else {
-            System.out.println("Música não encontrada.");
+
+        } catch (InputMismatchException e) {
+            System.out.println("Você deve inserir um número! " + e.getMessage());
+        } catch (NullPointerException e) {
+            System.out.println("Música não encontrada! " + e.getMessage());
         }
+
     }
 
     private static void listarAcervo(Plataforma plataforma) {
         System.out.println("Acervo (" + plataforma.getTotalMusicas() + " música(s))");
         for (int id = 1; id <= plataforma.getTotalMusicas(); id++) {
             Musica musica = plataforma.buscarMusicaPorId(id);
-            if (musica != null) {
-                System.out.println(formatarMusica(musica));
-            }
+            System.out.println(formatarMusica(musica));
         }
     }
 

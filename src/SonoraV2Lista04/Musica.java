@@ -27,7 +27,7 @@ public class Musica {
 
     private void setTitulo(String titulo) {
         if (titulo.isEmpty() || titulo.isBlank())
-            throw new IllegalArgumentException("O título não pode ser vazio!");
+            throw new IllegalArgumentException(" O título não pode ser vazio!");
         this.titulo = titulo;
     }
 
