@@ -1,6 +1,5 @@
 package SonoraV2Lista04;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -49,7 +48,7 @@ public class App {
                 }
             }
         } finally {
-            System.out.println("Fechando o sonora!");//provando que o finally sempre executa
+            System.out.println("Fechando o sonora!");// provando que o finally sempre executa
             scanner.close();
         }
     }
@@ -87,69 +86,69 @@ public class App {
     }
 
     private static void cadastrarUsuario(Scanner scanner, Plataforma plataforma) {
-        try{
-        System.out.print("Nome: ");
-        String nome = scanner.nextLine();
-        System.out.print("Email: ");
-        String email = scanner.nextLine();
+        try {
+            System.out.print("Nome: ");
+            String nome = scanner.nextLine();
+            System.out.print("Email: ");
+            String email = scanner.nextLine();
 
-        Usuario usuario = new Usuario(nome, email);
-        plataforma.cadastrarUsuario(usuario);
-        System.out.println("Usuário cadastrado com id " + usuario.getId());
-        } catch(IllegalArgumentException e) {
-            System.out.println("Não foi possível cadastrar o usuário. "+ e.getMessage());
+            Usuario usuario = new Usuario(nome, email);
+            plataforma.cadastrarUsuario(usuario);
+            System.out.println("Usuário cadastrado com id " + usuario.getId());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Não foi possível cadastrar o usuário! " + e.getMessage());
         }
-}
+    }
 
-  private static void criarPlaylistEAdicionar(Scanner scanner, Plataforma plataforma) {
-    System.out.print("Nome da playlist: ");
-    String nomePlaylist = scanner.nextLine();
-    System.out.print("Nome do usuário dono: ");
-    String nomeUsuario = scanner.nextLine();
-    System.out.print("Email do usuário dono: ");
-    String emailUsuario = scanner.nextLine();
+    private static void criarPlaylistEAdicionar(Scanner scanner, Plataforma plataforma) {
+        System.out.print("Nome da playlist: ");
+        String nomePlaylist = scanner.nextLine();
+        System.out.print("Nome do usuário dono: ");
+        String nomeUsuario = scanner.nextLine();
+        System.out.print("Email do usuário dono: ");
+        String emailUsuario = scanner.nextLine();
 
-    try {
-        Usuario dono = new Usuario(nomeUsuario, emailUsuario);
-        plataforma.cadastrarUsuario(dono);
+        try {
+            Usuario dono = new Usuario(nomeUsuario, emailUsuario);
+            plataforma.cadastrarUsuario(dono);
 
-        Playlist playlist = new Playlist(nomePlaylist, dono);
+            Playlist playlist = new Playlist(nomePlaylist, dono);
 
-        boolean adicionarMais = true;
-        while (adicionarMais) {
-            System.out.print("Id da música para adicionar (0 para parar): ");
-            int idMusica = scanner.hasNextInt() ? scanner.nextInt() : 0;
+            boolean adicionarMais = true;
+            while (adicionarMais) {
+                System.out.print("Id da música para adicionar (0 para parar): ");
+                int idMusica = scanner.hasNextInt() ? scanner.nextInt() : 0;
+                scanner.nextLine();
+
+                if (idMusica == 0) {
+                    adicionarMais = false;
+                } else {
+                    Musica musica = plataforma.buscarMusicaPorId(idMusica);
+                    boolean musicaAdicionada = playlist.adicionar(musica);
+                    System.out.println(musicaAdicionada ? "Adicionada!" : "Não foi possível adicionar.");
+                }
+            }
+
+            System.out.println("Playlist '" + playlist.getNome() + "' criada com " + playlist.getQuantidade()
+                    + " música(s), duração total: " + playlist.getDuracaoTotalSegundos() + "s");
+
+            System.out.print("Deseja consultar uma posição da playlist? Digite o índice (-1 para pular): ");
+            int indice = scanner.hasNextInt() ? scanner.nextInt() : -1;
             scanner.nextLine();
 
-            if (idMusica == 0) {
-                adicionarMais = false;
-            } else {
-                Musica musica = plataforma.buscarMusicaPorId(idMusica);
-                boolean musicaAdicionada = playlist.adicionar(musica);
-                System.out.println(musicaAdicionada ? "Adicionada!" : "Não foi possível adicionar.");
+            if (indice != -1) {
+                try {
+                    Musica musicaNaPosicao = playlist.getNaPosicao(indice);
+                    System.out.println("Música na posição " + indice + ": " + formatarMusica(musicaNaPosicao));
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Posição inválida! " + e.getMessage());
+                }
             }
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Não foi possível criar a playlist! " + e.getMessage());
         }
-
-        System.out.println("Playlist '" + playlist.getNome() + "' criada com " + playlist.getQuantidade()
-                + " música(s), duração total: " + playlist.getDuracaoTotalSegundos() + "s");
-
-        System.out.print("Deseja consultar uma posição da playlist? Digite o índice (-1 para pular): ");
-        int indice = scanner.hasNextInt() ? scanner.nextInt() : -1;
-        scanner.nextLine();
-
-        if (indice != -1) {
-            try {
-                Musica musicaNaPosicao = playlist.getNaPosicao(indice);
-                System.out.println("Música na posição " + indice + ": " + formatarMusica(musicaNaPosicao));
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("Posição inválida! " + e.getMessage());
-            }
-        }
-
-    } catch (IllegalArgumentException e) {
-        System.out.println("Não foi possível criar a playlist! " + e.getMessage());
     }
-}
 
     private static void buscarMusicaPorId(Scanner scanner, Plataforma plataforma) {
         System.out.print("Id da música: ");
@@ -168,20 +167,22 @@ public class App {
         System.out.println(musica != null ? formatarMusica(musica) : "Música não encontrada.");
     }
 
-    private static void reproduzirMusica(Scanner scanner, Plataforma plataforma) {// falta try/catch
+    private static void reproduzirMusica(Scanner scanner, Plataforma plataforma) {
+        System.out.print("Id da música a reproduzir: ");
+        String entrada = scanner.nextLine();
+
         try {
-            System.out.print("Id da música a reproduzir: ");
-            int id = scanner.nextInt();
+            int id = Integer.parseInt(entrada);
             Musica musica = plataforma.buscarMusicaPorId(id);
-            musica.reproduzir();
-            System.out.println("Reproduzida! Total de reproduções: " + musica.getReproducoes());
-
-        } catch (InputMismatchException e) {
-            System.out.println("Você deve inserir um número! " + e.getMessage());
-        } catch (NullPointerException e) {
-            System.out.println("Música não encontrada! " + e.getMessage());
+            if (musica != null) {
+                musica.reproduzir();
+                System.out.println("Reproduzida! Total de reproduções: " + musica.getReproducoes());
+            } else {
+                System.out.println("Música não encontrada.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Você deve inserir um número válido para o id da música.");
         }
-
     }
 
     private static void listarAcervo(Plataforma plataforma) {

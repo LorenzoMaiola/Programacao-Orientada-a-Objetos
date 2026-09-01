@@ -37,7 +37,7 @@ public class Musica {
 
     private void setArtista(String artista) {
         if (artista.isBlank() || artista.isEmpty()) {
-            throw new IllegalArgumentException("O artista não pode ser vazio");
+            throw new IllegalArgumentException(" O artista não pode ser vazio");
         }
         this.artista = artista;
     }
@@ -48,7 +48,7 @@ public class Musica {
 
     private void setDuracaoSegundos(int duracaoSegundos) {
         if (duracaoSegundos <= 0)
-            throw new IllegalArgumentException("A música deve ter alguma duração!");
+            throw new IllegalArgumentException(" A música deve ter alguma duração! " + duracaoSegundos + " segundos não é um tempo válido!");
         this.duracaoSegundos = duracaoSegundos;
     }
 

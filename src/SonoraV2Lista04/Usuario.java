@@ -8,9 +8,9 @@ public class Usuario {
     private String email;
 
     public Usuario(String nome, String email) {
-        this.id = ++contador;
         setNome(nome);
         setEmail(email);
+        this.id = ++contador;
     }
 
     public int getId() {
@@ -35,7 +35,7 @@ public class Usuario {
         if (email.isEmpty() || email.isBlank())
             throw new IllegalArgumentException("O email não pode ser vazio!");
         else if (!email.contains("@"))
-            throw new IllegalArgumentException("O email deve conter um @");
+            throw new IllegalArgumentException("\nO email deve conter um \"@\".\"" + email + "\" não é um e-mail válido!");
         this.email = email;
     }
 }
