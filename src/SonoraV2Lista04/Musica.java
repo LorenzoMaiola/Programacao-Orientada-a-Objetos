@@ -10,10 +10,10 @@ public class Musica {
     private int reproducoes;
 
     public Musica(String titulo, String artista, int duracaoSegundos) {
-        this.id = ++contador;
         setTitulo(titulo);
         setArtista(artista);
         setDuracaoSegundos(duracaoSegundos);
+        this.id = ++contador;
         this.reproducoes = 0;
     }
 
