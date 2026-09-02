@@ -1,0 +1,40 @@
+package SonoraV3Lista05.src;
+public class Usuario {
+    private static int contador = 0;
+
+    private final int id;
+    private String nome;
+    private String email;
+
+    public Usuario(String nome, String email) {
+        setNome(nome);
+        setEmail(email);
+        this.id = ++contador;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    private void setNome(String nome) {
+        if (nome.isBlank() || nome.isEmpty())
+            throw new IllegalArgumentException("Nome não pode ser vazio!");
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    private void setEmail(String email) {
+        if (email.isEmpty() || email.isBlank())
+            throw new IllegalArgumentException("O email não pode ser vazio!");
+        else if (!email.contains("@"))
+            throw new IllegalArgumentException("\nO email deve conter um \"@\".\"" + email + "\" não é um e-mail válido!");
+        this.email = email;
+    }
+}
