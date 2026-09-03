@@ -1,5 +1,3 @@
-package SonoraV3Lista05.src;
-
 public class Musica {
     private static int contador = 0;
 
@@ -26,7 +24,7 @@ public class Musica {
     }
 
     private void setTitulo(String titulo) {
-        if (titulo.isEmpty() || titulo.isBlank())
+        if (titulo == null || titulo.isEmpty() || titulo.isBlank())
             throw new IllegalArgumentException(" O título não pode ser vazio!");
         this.titulo = titulo;
     }
@@ -36,7 +34,7 @@ public class Musica {
     }
 
     private void setArtista(String artista) {
-        if (artista.isBlank() || artista.isEmpty()) {
+        if (artista == null || artista.isBlank() || artista.isEmpty()) {
             throw new IllegalArgumentException(" O artista não pode ser vazio");
         }
         this.artista = artista;

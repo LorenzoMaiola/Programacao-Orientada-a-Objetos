@@ -1,4 +1,3 @@
-package SonoraV3Lista05.src;
 import java.util.Scanner;
 
 public class App {

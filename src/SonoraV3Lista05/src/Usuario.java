@@ -1,4 +1,3 @@
-package SonoraV3Lista05.src;
 public class Usuario {
     private static int contador = 0;
 

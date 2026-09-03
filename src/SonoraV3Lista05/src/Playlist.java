@@ -1,4 +1,3 @@
-package SonoraV3Lista05.src;
 public class Playlist {
     private static final int CAPACIDADE_MAXIMA = 100;
 
