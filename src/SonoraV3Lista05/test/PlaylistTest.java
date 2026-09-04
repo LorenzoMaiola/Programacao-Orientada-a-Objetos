@@ -21,8 +21,8 @@ public class PlaylistTest {
         return new Musica("Titulo", "Artista", 120);
     }
 
-    //PL03
-    
+    // PL03
+
     @DisplayName("Adicionar musica em playlist com espaco disponivel")
     @Test
     void playlistComEspacoDeveAdicionarMusica() {
@@ -55,12 +55,11 @@ public class PlaylistTest {
         assertThrows(IllegalArgumentException.class, () -> playlist.adicionar(null));
     }
 
+    // PL04 - validar getNaPosicao()
 
-    //PL04 - validar getNaPosicao()
-    
     @DisplayName("Indice valido no meio da playlist devolve a musica certa")
     @Test
-    void indiceValidoDevolveMusicaCerta(){
+    void indiceValidoDevolveMusicaCerta() {
         Musica musica1 = new Musica("Titulo", "artista", 120);
         Musica musica2 = new Musica("Titulo", "artista", 120);
         Musica musica3 = new Musica("Titulo", "artista", 120);
@@ -74,31 +73,88 @@ public class PlaylistTest {
 
     @DisplayName("Indice negativo deve ser rejeitado")
     @Test
-    void indiceNegativoDeveSerRejeitado(){
+    void indiceNegativoComoPosicaoDeveSerRejeitado() {
         Playlist playlist = criarEPreencherPlaylist(3);
         assertThrows(IndexOutOfBoundsException.class, () -> playlist.getNaPosicao(-1));
     }
 
     @DisplayName("Indice igual a quantidade")
     @Test
-    void indiceIgualAQuantidadeDeveSerRejeitado(){
+    void indiceIgualAQuantidadeComoPosicaoDeveSerRejeitado() {
         Playlist playlist = criarEPreencherPlaylist(3);
         assertThrows(IndexOutOfBoundsException.class, () -> playlist.getNaPosicao(3));
     }
 
     @DisplayName("Índice maior que a quantidade")
     @Test
-    void indiceMaiorQueAQuantidadeDeveSerRejeitada(){
+    void indiceMaiorQueAQuantidadeDeveSerRejeitada() {
         Playlist playlist = criarEPreencherPlaylist(3);
         assertThrows(IndexOutOfBoundsException.class, () -> playlist.getNaPosicao(10));
     }
 
     @DisplayName("Playlist vazia, qualquer indice é inválido")
     @Test
-    void playlistVaziaNaoDeveAceitarNenhumIndice(){
+    void playlistVaziaNaoDeveAceitarNenhumIndice() {
         Playlist playlist = new Playlist("nome", usuario);
         assertThrows(IndexOutOfBoundsException.class, () -> playlist.getNaPosicao(0));
     }
 
-    //PL05 - validar Playlist.removerNaPosicao()
+    // PL05 - validar Playlist.removerNaPosicao()
+
+    @DisplayName("Remover posicao valida no meio reorganiza sem deixar buraco")
+    @Test
+    void removerPosicaoValidaDeveReordenarPlaylist() {
+        Playlist playlist = new Playlist("nome", usuario);
+        Musica musica1 = new Musica("Titulo", "artista", 120);
+        Musica musica2 = new Musica("Titulo", "artista", 120);
+        Musica musica3 = new Musica("Titulo", "artista", 120);
+        playlist.adicionar(musica1);
+        playlist.adicionar(musica2);
+        playlist.adicionar(musica3);
+
+        assertTrue(playlist.removerNaPosicao(0));
+        assertEquals(playlist.getNaPosicao(0), musica2);
+        assertEquals(playlist.getNaPosicao(1), musica3);
+        assertTrue(playlist.getQuantidade() == 2);
+    }
+
+    @DisplayName("Remover a ultima posicao da playlist")
+    @Test
+    void removerUltimaPosicaoDeveSerValido() {
+        Playlist playlist = new Playlist("nome", usuario);
+        Musica musica1 = new Musica("Titulo", "artista", 120);
+        Musica musica2 = new Musica("Titulo", "artista", 120);
+        Musica musica3 = new Musica("Titulo", "artista", 120);
+        playlist.adicionar(musica1);
+        playlist.adicionar(musica2);
+        playlist.adicionar(musica3);
+
+        assertTrue(playlist.removerNaPosicao(2));
+        assertEquals(2, playlist.getQuantidade());
+        assertEquals(musica1, playlist.getNaPosicao(0));
+        assertEquals(musica2, playlist.getNaPosicao(1));
+        assertThrows(IndexOutOfBoundsException.class,() -> playlist.getNaPosicao(2));
+    }
+
+    @DisplayName("Indice negativo deve ser rejeitado")
+    @Test
+    void indiceNegativoDeveSerRejeitado(){
+        Playlist playlist = criarEPreencherPlaylist(3);
+        assertThrows(IndexOutOfBoundsException.class, () -> playlist.removerNaPosicao(-1));
+    }
+
+    @DisplayName("Indice igual a quantidade deve ser rejeitado")
+    @Test
+    void indiceIgualAQuantidadeDeveSerRejeitado(){
+        Playlist playlist = criarEPreencherPlaylist(3);
+        assertThrows(IndexOutOfBoundsException.class, () -> playlist.removerNaPosicao(3));
+    }
+
+    @DisplayName("Remover de uma playlist vazia")
+    @Test
+    void removerDePlaylistVaziaDeveLancarExcecao(){
+        Playlist playlist = new Playlist("nome", usuario);
+        assertThrows(IndexOutOfBoundsException.class, () -> playlist.removerNaPosicao(0));
+    }
+
 }
