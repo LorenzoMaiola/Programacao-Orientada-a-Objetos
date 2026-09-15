@@ -2,7 +2,15 @@ import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Field;
+
 class MusicaTest {
+
+    private void resetContador(Class<?> tipo) throws Exception {
+        Field field = tipo.getDeclaredField("contador");
+        field.setAccessible(true);
+        field.setInt(null, 0);
+    }
 
     public Musica criarMusica(int duracaoSegundos) {
         return new Musica("Rotten Apple", "Alice in Chains", duracaoSegundos);
@@ -82,4 +90,81 @@ class MusicaTest {
         assertNotNull(musica);
         assertTrue(musica.getId() > 0);
     }
+
+
+
+    //PL 07
+
+    @DisplayName("Uma unica chamada de reproduzir() incrementa o contador")
+    @Test
+    void aoChamarMetodoIncrementaContador(){
+        Musica musica = new Musica("Titulo", "Artista", 120);
+        musica.reproduzir();
+
+
+        assertEquals(musica.getReproducoes(), 1);
+    }
+
+    @DisplayName("Multiplas chamadas sequenciais somam corretamente")
+    @Test
+    void aoChamarMetodoIncrementaCorretamenteTodasAsVezes(){
+        Musica musica = new Musica("Titulo", "Artista", 120);
+        musica.reproduzir();
+        musica.reproduzir();
+        musica.reproduzir();
+        musica.reproduzir();
+        musica.reproduzir();
+
+        assertEquals(musica.getReproducoes(), 5);
+    }
+
+    @DisplayName("Nenhuma chamada mantem o contador zerado")
+    @Test
+    void naoChamarNaoIncrementaContador(){
+        Musica musica = new Musica("Titulo", "Artista", 120);
+        assertEquals(musica.getReproducoes(), 0);
+    }
+
+    //PL08
+    
+    @DisplayName("Ids de Musica sao sequenciais")
+    @Test
+    void idsConsecutivosAoCriarInstanciaDeMusica() throws Exception {
+        resetContador(Musica.class);
+
+        Musica musica1 = new Musica("Titulo", "Artista", 230);
+        Musica musica2 = new Musica("Titulo", "Artista", 230);
+        Musica musica3 = new Musica("Titulo", "Artista", 230);
+
+        assertEquals(musica1.getId(), 1);
+        assertEquals(musica2.getId(), 2);
+        assertEquals(musica3.getId(), 3);
+    }
+
+    @DisplayName("Contadores de id de Musica e Usuario sao independentes")
+    @Test
+    void IdsDeMusicaEUsuarioDevemSerIndependentes() throws Exception {
+        resetContador(Usuario.class);
+        resetContador(Musica.class);
+
+        Usuario usuario1 = new Usuario("Nome", "Email@gmail.com");
+        Musica musica1 = new Musica("Titulo", "Artista", 230);
+
+        Usuario usuario2 = new Usuario("Nome", "Email@gmail.com");
+        Musica musica2 = new Musica("Titulo", "Artista", 230);
+
+        Usuario usuario3 = new Usuario("Nome", "Email@gmail.com");
+        Musica musica3 = new Musica("Titulo", "Artista", 230);
+
+        assertEquals(usuario1.getId(), 1);
+        assertEquals(musica1.getId(), 1);
+
+        assertEquals(usuario2.getId(), 2);
+        assertEquals(musica2.getId(), 2);
+
+        assertEquals(usuario3.getId(), 3);
+        assertEquals(musica3.getId(), 3);
+    }
+
+
 }
