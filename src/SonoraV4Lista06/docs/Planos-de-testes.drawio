@@ -1,0 +1,440 @@
+<mxfile host="Electron" agent="Claude" pages="6">
+  <diagram id="page1" name="PL03">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" value="PL03 - Validar Playlist.adicionar(musica)" style="text;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="Caso" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="Descricao" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="90" y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="Entrada" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="390" y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="Saida esperada" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="690" y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" value="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="110" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" value="Adicionar musica em playlist com espaco disponivel" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="110" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" value="Playlist vazia (quantidade = 0); adicionar 1 musica valida" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="110" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" value="Retorna true; quantidade passa a ser 1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="110" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" value="2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c12" value="Adicionar ate atingir exatamente a capacidade maxima" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="180" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c13" value="Playlist com 99 musicas; adicionar 1 musica valida" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="180" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c14" value="Retorna true; quantidade passa a ser 100 (capacidade maxima)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="180" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c15" value="3" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c16" value="Adicionar quando a playlist ja esta cheia" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="250" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c17" value="Playlist com 100 musicas (cheia); adicionar 1 musica valida" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="250" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c18" value="Retorna false; quantidade permanece 100" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="250" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c19" value="4" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c20" value="Adicionar musica nula em playlist com espaco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="320" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c21" value="Playlist com espaco disponivel; musica = null" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="320" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c22" value="Lanca IllegalArgumentException" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="320" width="300" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page2" name="PL04">
+    <mxGraphModel dx="1024" dy="924" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" parent="1" style="text;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;" value="PL04 - Validar Playlist.getNaPosicao(indice)" vertex="1">
+          <mxGeometry height="30" width="900" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" value="Caso" vertex="1">
+          <mxGeometry height="30" width="50" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" value="Descricao" vertex="1">
+          <mxGeometry height="30" width="300" x="90" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" value="Entrada" vertex="1">
+          <mxGeometry height="30" width="300" x="390" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" value="Saida esperada" vertex="1">
+          <mxGeometry height="30" width="300" x="690" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="1" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Indice valido no meio da playlist devolve a musica certa" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Playlist com 3 musicas [1,2,3]; indice = 1" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Retorna a musica 2 (posicao 1)" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="2" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Indice negativo deve ser rejeitado" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Playlist com musicas cadastradas; indice = -1" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Lanca IndexOutOfBoundsException" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="3" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="c16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Indice igual a quantidade&amp;nbsp;" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="c17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Playlist com 3 musicas; indice = 3" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="c18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Lanca IndexOutOfBoundsException" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="c19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="4" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="c20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Indice maior que a quantidade" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="c21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Playlist com 3 musicas; indice = 10" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="c22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Lanca IndexOutOfBoundsException" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="c23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="5" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="c24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Playlist vazia, qualquer indice e invalido" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="c25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Playlist vazia (quantidade = 0); indice = 0" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="c26" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Lanca IndexOutOfBoundsException" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="390" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page3" name="PL05">
+    <mxGraphModel dx="971" dy="876" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" parent="1" style="text;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;" value="PL05 - Validar Playlist.removerNaPosicao(indice)" vertex="1">
+          <mxGeometry height="30" width="900" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" value="Caso" vertex="1">
+          <mxGeometry height="30" width="50" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" value="Descricao" vertex="1">
+          <mxGeometry height="30" width="300" x="90" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" value="Entrada" vertex="1">
+          <mxGeometry height="30" width="300" x="390" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" value="Saida esperada" vertex="1">
+          <mxGeometry height="30" width="300" x="690" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="1" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Remover posicao valida no meio reorganiza sem deixar buraco" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Playlist com [A,B,C]; removerNaPosicao(0)" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Retorna true; posicao 0 passa a ser B, posicao 1 passa a ser C; quantidade vira 2" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="2" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Remover a ultima posicao da playlist" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Playlist com [A,B,C]; removerNaPosicao(2)" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Retorna true; quantidade vira 2; A e B permanecem nas mesmas posicoes" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="3" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="c16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Indice negativo deve ser rejeitado" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="c17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Playlist com musicas cadastradas; indice = -1" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="c18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Lanca IndexOutOfBoundsException" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="c19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="4" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="c20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Indice igual a quantidade deve ser rejeitado" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="c21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Playlist com 3 musicas; indice = 3" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="c22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Lanca IndexOutOfBoundsException" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="c23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="5" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="c24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Remover de uma playlist vazia" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="c25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Playlist vazia (quantidade = 0); indice = 0" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="c26" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Lanca IndexOutOfBoundsException" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="390" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page4" name="PL06">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" value="PL06 - Validar Plataforma.buscarMusica e buscarMusicaPorId" style="text;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="Caso" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="Descricao" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="90" y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="Entrada" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="390" y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="Saida esperada" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="690" y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" value="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="110" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" value="Buscar por titulo exatamente igual ao cadastrado" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="110" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" value="Plataforma com &quot;Bohemian Rhapsody&quot; cadastrada; buscarMusica(&quot;Bohemian Rhapsody&quot;)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="110" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" value="Retorna o objeto Musica correspondente" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="110" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" value="2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c12" value="Buscar por titulo com diferenca de maiusculas e minusculas" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="180" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c13" value="Plataforma com &quot;Bohemian Rhapsody&quot; cadastrada; buscarMusica(&quot;bohemian rhapsody&quot;)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="180" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c14" value="Retorna o mesmo objeto Musica (busca ignora caixa)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="180" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c15" value="3" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c16" value="Buscar por titulo inexistente" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="250" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c17" value="Plataforma com musicas cadastradas; buscarMusica(&quot;Musica Inexistente&quot;)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="250" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c18" value="Retorna null" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="250" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c19" value="4" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c20" value="Buscar por id existente" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="320" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c21" value="Plataforma com musica cadastrada; buscarMusicaPorId(id da musica cadastrada)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="320" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c22" value="Retorna o objeto Musica correspondente" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="320" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c23" value="5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="390" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c24" value="Buscar por id inexistente" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="390" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c25" value="Plataforma com musicas cadastradas; buscarMusicaPorId(9999)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="390" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c26" value="Retorna null" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="390" width="300" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page5" name="PL07">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" value="PL07 - Validar Musica.reproduzir()" style="text;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="Caso" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="Descricao" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="90" y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="Entrada" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="390" y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="Saida esperada" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="690" y="80" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" value="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="110" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" value="Uma unica chamada de reproduzir() incrementa o contador" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="110" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" value="Musica recem-criada (reproducoes = 0); chamar reproduzir() uma vez" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="110" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" value="getReproducoes() retorna 1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="110" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" value="2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c12" value="Multiplas chamadas sequenciais somam corretamente" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="180" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c13" value="Musica recem-criada; chamar reproduzir() 5 vezes seguidas" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="180" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c14" value="getReproducoes() retorna 5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="180" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c15" value="3" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="50" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c16" value="Nenhuma chamada mantem o contador zerado" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="90" y="250" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c17" value="Musica recem-criada; reproduzir() nunca chamado" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="250" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c18" value="getReproducoes() retorna 0" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="250" width="300" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page6" name="PL08 (bonus)">
+    <mxGraphModel dx="956" dy="588" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c2" parent="1" style="text;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;" value="PL08 (bonus) - Validar contadores de id de Musica e Usuario" vertex="1">
+          <mxGeometry height="30" width="900" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" value="Caso" vertex="1">
+          <mxGeometry height="30" width="50" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" value="Descricao" vertex="1">
+          <mxGeometry height="30" width="300" x="90" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" value="Entrada" vertex="1">
+          <mxGeometry height="30" width="300" x="390" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;align=center;verticalAlign=middle;" value="Saida esperada" vertex="1">
+          <mxGeometry height="30" width="300" x="690" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="1" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Ids de Musica sao sequenciais" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Criar 3 objetos Musica em sequencia" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Os ids retornados sao consecutivos (ex.: n, n+1, n+2)" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="2" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Ids de Usuario sao sequenciais" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Criar 3 objetos Usuario em sequencia" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Os ids retornados sao consecutivos (ex.: n, n+1, n+2)" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="3" vertex="1">
+          <mxGeometry height="70" width="50" x="40" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="c16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Contadores de id de Musica e Usuario sao independentes" vertex="1">
+          <mxGeometry height="70" width="300" x="90" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="c17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="Criar 1 Musica e, em seguida, 1 Usuario" vertex="1">
+          <mxGeometry height="70" width="300" x="390" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="c18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;align=left;verticalAlign=middle;spacing=6;" value="O id do Usuario segue a propria sequencia de Usuario, sem ser afetado pela contagem de Musica" vertex="1">
+          <mxGeometry height="70" width="300" x="690" y="250" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
