@@ -1,41 +1,42 @@
-public class Plataforma {
-    private static final int CAPACIDADE_MAXIMA = 500;
+import java.util.ArrayList;
 
-    private Musica[] acervo;
+public class Plataforma {
+
+    private ArrayList<Musica> acervo;
     private int totalMusicas;
 
-    private Usuario[] usuarios;
+    private ArrayList<Usuario> usuarios;
     private int totalUsuarios;
 
     public Plataforma() {
-        this.acervo = new Musica[CAPACIDADE_MAXIMA];
+        this.acervo = new ArrayList<>();
         this.totalMusicas = 0;
-        this.usuarios = new Usuario[CAPACIDADE_MAXIMA];
+        this.usuarios = new ArrayList<>();
         this.totalUsuarios = 0;
     }
 
     public boolean cadastrarMusica(Musica musica) {
-        if (musica == null || totalMusicas >= CAPACIDADE_MAXIMA) {
+        if (musica == null) {
             return false;
         }
-        acervo[totalMusicas] = musica;
+        acervo.add(musica);
         totalMusicas++;
         return true;
     }
 
     public boolean cadastrarUsuario(Usuario usuario) {
-        if (usuario == null || totalUsuarios >= CAPACIDADE_MAXIMA) {
+        if (usuario == null) {
             return false;
         }
-        usuarios[totalUsuarios] = usuario;
+        usuarios.add(usuario);
         totalUsuarios++;
         return true;
     }
 
     public Musica buscarMusicaPorId(int id) {
         for (int i = 0; i < totalMusicas; i++) {
-            if (acervo[i].getId() == id) {
-                return acervo[i];
+            if (acervo.get(i).getId() == id) {
+                return acervo.get(i);
             }
         }
         return null;
@@ -43,8 +44,8 @@ public class Plataforma {
 
     public Musica buscarMusica(String titulo) {
         for (int i = 0; i < totalMusicas; i++) {
-            if (acervo[i].getTitulo().equalsIgnoreCase(titulo)) {
-                return acervo[i];
+            if (acervo.get(i).getTitulo().equalsIgnoreCase(titulo)) {
+                return acervo.get(i);
             }
         }
         return null;
