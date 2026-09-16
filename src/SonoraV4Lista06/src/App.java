@@ -1,10 +1,10 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Plataforma plataforma = new Plataforma();
-
         boolean continuar = true;
         try {
             while (continuar) {
@@ -38,6 +38,12 @@ public class App {
                     case 7:
                         listarAcervo(plataforma);
                         break;
+                    case 8:
+                        // seguirUsuario
+                        break;
+                    case 9:
+                        // deixarDeSeguir
+                        break;
                     case 0:
                         continuar = false;
                         break;
@@ -60,6 +66,8 @@ public class App {
         System.out.println("5 - Buscar música por título");
         System.out.println("6 - Reproduzir uma música");
         System.out.println("7 - Listar acervo");
+        System.out.println("8 - Seguir um usuário");
+        System.out.println("9 - Deixar de seguir um usuário");
         System.out.println("0 - Sair");
         System.out.print("Escolha uma opção: ");
     }
@@ -196,4 +204,24 @@ public class App {
                 + " (" + m.getDuracaoFormatada() + ") | reproduções: " + m.getReproducoes();
     }
 
+    private static void seguirUsuario(Scanner scanner, Plataforma plataforma){
+        try {
+            ArrayList<Usuario> usuariosCadastrados = plataforma.getUsuarios();            
+            System.out.println("Insira o id do usuário que será um seguidor: ");
+            int idSeguidor = scanner.nextInt();
+            System.out.println("Insira o id do usuário a ser seguido: ");            
+            int idSeguido = scanner.nextInt();
+            
+            for(int i = 0; i < usuariosCadastrados.size(); i++){
+                // usuariosCadastrados.get(i).getId() == 
+            }
+        
+        
+        
+        
+        
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
 }

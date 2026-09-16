@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+
 public class Usuario {
     private static int contador = 0;
 
     private final int id;
     private String nome;
     private String email;
+    private ArrayList<Usuario> seguindo;
 
     public Usuario(String nome, String email) {
         setNome(nome);
@@ -33,7 +36,37 @@ public class Usuario {
         if (email.isEmpty() || email.isBlank())
             throw new IllegalArgumentException("O email não pode ser vazio!");
         else if (!email.contains("@"))
-            throw new IllegalArgumentException("\nO email deve conter um \"@\".\"" + email + "\" não é um e-mail válido!");
+            throw new IllegalArgumentException(
+                    "\nO email deve conter um \"@\".\"" + email + "\" não é um e-mail válido!");
         this.email = email;
     }
+
+    public void seguir(Usuario outro) {
+        for(int i = 0; i < seguindo.size(); i++){
+            
+        if (outro.id == getId())
+            throw new IllegalArgumentException("O usuário não pode seguir a si mesmo!");
+
+        if(outro.id == seguindo.get(i).getId())
+            throw new IllegalStateException("Não foi possível seguir. Esse usuário já é seguido!");
+        }
+    }
+
+    public void deixarDeSeguir(Usuario outro){
+        if(outro.id != this.id){
+            if(seguindo.contains(outro))
+                seguindo.remove(outro);
+            else{
+                throw new IllegalStateException("O usuário não existe na lista de seguindo.");
+            }
+        }
+        else{
+            throw new IllegalArgumentException("Não é possível deixar de seguir a si mesmo!");
+        }
+    }
+
+    public int getQuantidadeSeguindo(){
+        return seguindo.size();
+    }
+
 }

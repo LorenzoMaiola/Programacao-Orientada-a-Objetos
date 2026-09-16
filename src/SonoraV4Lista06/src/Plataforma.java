@@ -58,4 +58,8 @@ public class Plataforma {
     public int getTotalUsuarios() {
         return totalUsuarios;
     }
+
+    public ArrayList<Usuario> getUsuarios(){
+        return usuarios;
+    }
 }
