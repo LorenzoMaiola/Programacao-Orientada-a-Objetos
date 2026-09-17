@@ -11,6 +11,7 @@ public class Usuario {
     public Usuario(String nome, String email) {
         setNome(nome);
         setEmail(email);
+        seguindo = new ArrayList<>();
         this.id = ++contador;
     }
 
@@ -42,30 +43,29 @@ public class Usuario {
     }
 
     public void seguir(Usuario outro) {
-        for(int i = 0; i < seguindo.size(); i++){
-            
         if (outro.id == getId())
             throw new IllegalArgumentException("O usuário não pode seguir a si mesmo!");
 
-        if(outro.id == seguindo.get(i).getId())
-            throw new IllegalStateException("Não foi possível seguir. Esse usuário já é seguido!");
+        for (int i = 0; i < seguindo.size(); i++) {
+            if (outro.id == seguindo.get(i).getId())
+                throw new IllegalStateException("Não foi possível seguir. Esse usuário já é seguido!");
         }
+        seguindo.add(outro);
     }
 
-    public void deixarDeSeguir(Usuario outro){
-        if(outro.id != this.id){
-            if(seguindo.contains(outro))
+    public void deixarDeSeguir(Usuario outro) {
+        if (outro.id != this.id) {
+            if (seguindo.contains(outro))
                 seguindo.remove(outro);
-            else{
+            else {
                 throw new IllegalStateException("O usuário não existe na lista de seguindo.");
             }
-        }
-        else{
+        } else {
             throw new IllegalArgumentException("Não é possível deixar de seguir a si mesmo!");
         }
     }
 
-    public int getQuantidadeSeguindo(){
+    public int getQuantidadeSeguindo() {
         return seguindo.size();
     }
 

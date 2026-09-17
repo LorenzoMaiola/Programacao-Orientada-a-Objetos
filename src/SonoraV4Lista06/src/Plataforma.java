@@ -59,7 +59,13 @@ public class Plataforma {
         return totalUsuarios;
     }
 
-    public ArrayList<Usuario> getUsuarios(){
-        return usuarios;
+    public Usuario getUsuarioPorId(int id) {
+        for (int i = 0; i < usuarios.size(); i++) {
+            Usuario usuario = usuarios.get(i);
+            if (usuario.getId() == id)
+                return usuario;
+        }
+        throw new IllegalStateException("Usuário com id " + id + " não cadastrado!");
     }
+
 }

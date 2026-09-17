@@ -39,10 +39,10 @@ public class App {
                         listarAcervo(plataforma);
                         break;
                     case 8:
-                        // seguirUsuario
+                        seguirUsuario(scanner, plataforma);
                         break;
                     case 9:
-                        // deixarDeSeguir
+                        deixarDeseguirUsuario(scanner, plataforma);
                         break;
                     case 0:
                         continuar = false;
@@ -204,24 +204,43 @@ public class App {
                 + " (" + m.getDuracaoFormatada() + ") | reproduções: " + m.getReproducoes();
     }
 
-    private static void seguirUsuario(Scanner scanner, Plataforma plataforma){
+    private static void seguirUsuario(Scanner scanner, Plataforma plataforma) {
         try {
-            ArrayList<Usuario> usuariosCadastrados = plataforma.getUsuarios();            
             System.out.println("Insira o id do usuário que será um seguidor: ");
             int idSeguidor = scanner.nextInt();
-            System.out.println("Insira o id do usuário a ser seguido: ");            
+            Usuario seguidor = plataforma.getUsuarioPorId(idSeguidor);
+
+            System.out.println("Insira o id do usuário a ser seguido: ");
             int idSeguido = scanner.nextInt();
-            
-            for(int i = 0; i < usuariosCadastrados.size(); i++){
-                // usuariosCadastrados.get(i).getId() == 
-            }
-        
-        
-        
-        
-        
-        } catch (Exception e) {
-            // TODO: handle exception
+            Usuario seguido = plataforma.getUsuarioPorId(idSeguido);
+
+            seguidor.seguir(seguido);
+
+        } catch (IllegalStateException e) {
+            System.out.println("Não foi possível seguir! " + e.getMessage());
+        } catch (NullPointerException e) { // só pra garantir que usuario nao venha nulo
+            System.out.println("Ocorreu um erro! Verifique se os id's informados pertencem à algum usuário!");
+        }
+    }
+
+    private static void deixarDeseguirUsuario(Scanner scanner, Plataforma plataforma) {
+        try {
+            System.out.println("Insira o id do usuário que quer parar de seguir outro usuário: ");
+            int idSeguidor = scanner.nextInt();
+            scanner.nextLine();
+            Usuario seguidor = plataforma.getUsuarioPorId(idSeguidor);
+
+            System.out.println("Insira o id do usuário a parar de ser seguido: ");
+            int idSeguido = scanner.nextInt();
+            scanner.nextLine();
+            Usuario seguido = plataforma.getUsuarioPorId(idSeguido);
+
+            seguidor.deixarDeSeguir(seguido);
+
+        } catch (IllegalStateException e) {
+            System.out.println("Não foi possível parar de seguir! " + e.getMessage());
+        } catch (NullPointerException e) { // só pra garantir que usuario nao venha nulo
+            System.out.println("Ocorreu um erro! Verifique se os id's informados pertencem à algum usuário!");
         }
     }
 }
