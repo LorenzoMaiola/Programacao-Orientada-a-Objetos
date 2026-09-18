@@ -1,4 +1,6 @@
-public class Musica {
+package SonoraV4Lista06.src;
+
+    public class Musica {
     private static int contador = 0;
 
     private final int id;

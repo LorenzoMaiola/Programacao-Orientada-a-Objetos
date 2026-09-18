@@ -1,4 +1,9 @@
+package prova01.test;
+
 import org.junit.jupiter.api.Test;
+
+import prova01.src.Produto;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**

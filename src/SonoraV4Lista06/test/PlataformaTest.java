@@ -1,4 +1,8 @@
+package SonoraV4Lista06.test;
 import org.junit.jupiter.api.*;
+
+import SonoraV1Lista03.Musica;
+import SonoraV1Lista03.Plataforma;
 
 import static org.junit.jupiter.api.Assertions.*;
 

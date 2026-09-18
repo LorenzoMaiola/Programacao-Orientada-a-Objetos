@@ -1,7 +1,11 @@
+package SonoraV4Lista06.test;
 import org.junit.jupiter.api.DisplayName;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
+
+import SonoraV1Lista03.Musica;
+import SonoraV1Lista03.Usuario;
 
 import java.lang.reflect.Field;
 

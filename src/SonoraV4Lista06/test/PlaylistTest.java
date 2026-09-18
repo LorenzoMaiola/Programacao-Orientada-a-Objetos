@@ -1,4 +1,9 @@
+package SonoraV4Lista06.test;
 import org.junit.jupiter.api.*;
+
+import SonoraV1Lista03.Musica;
+import SonoraV1Lista03.Playlist;
+import SonoraV1Lista03.Usuario;
 
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
