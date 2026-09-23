@@ -1,0 +1,51 @@
+package SonoraV5Lista08.src;
+
+public class Conteudo {
+    private static int id = 0;
+    private String titulo;
+    private int duracaoSegundos;
+
+    public Conteudo(String titulo, int duracaoSegundos){
+        setTitulo(titulo);
+        setDuracaoSegundos(duracaoSegundos);
+        id++;
+    }
+
+    protected static int getId(){
+        return id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        if (titulo == null || titulo.isBlank())
+            throw new IllegalArgumentException("O título não pode ser vazio!");
+
+        this.titulo = titulo;
+    }
+
+    public int getDuracaoSegundos() {
+        return duracaoSegundos;
+    }
+
+    public void setDuracaoSegundos(int duracaoSegundos) {
+        if (duracaoSegundos <= 0)
+            throw new IllegalArgumentException("A duração deve ser maior que zero!");
+
+        this.duracaoSegundos = duracaoSegundos;
+    }
+
+    public void reproduzir(){
+        System.out.println("Reproduzindo: " + toString());
+    }
+
+     @Override 
+    public String toString() { 
+        return "[" + getId() + "] " + titulo 
+             + " (" + duracaoSegundos + "s)"; 
+    } 
+
+
+}
