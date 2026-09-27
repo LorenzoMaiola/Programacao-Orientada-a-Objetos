@@ -1,6 +1,4 @@
-package SonoraV4Lista06.src;
-
-    public class Musica {
+public class Musica {
     private static int contador = 0;
 
     private final int id;
@@ -48,7 +46,8 @@ package SonoraV4Lista06.src;
 
     private void setDuracaoSegundos(int duracaoSegundos) {
         if (duracaoSegundos <= 0)
-            throw new IllegalArgumentException(" A música deve ter alguma duração! " + duracaoSegundos + " segundos não é um tempo válido!");
+            throw new IllegalArgumentException(
+                    " A música deve ter alguma duração! " + duracaoSegundos + " segundos não é um tempo válido!");
         this.duracaoSegundos = duracaoSegundos;
     }
 

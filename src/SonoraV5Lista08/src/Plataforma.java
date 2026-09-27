@@ -1,12 +1,12 @@
-package SonoraV5Lista08.src;
-
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Plataforma {
 
     private ArrayList<Musica> acervo;
     private int totalMusicas;
-
+    private ArrayList<Podcast> episodios;
+    private int totalPodcasts;
     private ArrayList<Usuario> usuarios;
     private int totalUsuarios;
 
@@ -15,6 +15,8 @@ public class Plataforma {
         this.totalMusicas = 0;
         this.usuarios = new ArrayList<>();
         this.totalUsuarios = 0;
+        this.episodios = new ArrayList<>();
+        this.totalPodcasts = 0;
     }
 
     public boolean cadastrarMusica(Musica musica) {
@@ -70,4 +72,22 @@ public class Plataforma {
         throw new IllegalStateException("Usuário com id " + id + " não cadastrado!");
     }
 
+    
+    public boolean cadastrarPodcast(Podcast podcast) {
+        if (podcast == null) {
+            return false;
+        }
+        episodios.add(podcast);
+        totalPodcasts++;
+        return true;
+    }
+
+    public Podcast getPodcastPorId(int id) {
+        for (int i = 0; i < episodios.size(); i++) {
+            Podcast podcast = episodios.get(i);
+            if (episodios.get(i).getId() == id)
+                return podcast;
+        }
+        throw new IllegalStateException("Podcast com id " + id + " não cadastrado!");
+    }
 }

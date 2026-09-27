@@ -1,11 +1,9 @@
-package SonoraV5Lista08.src;
-
 public class Musica extends Conteudo {
     private String artista;
     private int reproducoes;
     private String album;
 
-    public Musica(String titulo, int duracaoSegundos, String album) {
+    public Musica(String titulo, int duracaoSegundos, String album, String artista) {
         super(titulo, duracaoSegundos);
         setArtista(artista);
         setAlbum(album);
@@ -23,12 +21,14 @@ public class Musica extends Conteudo {
         this.artista = artista;
     }
 
-    public int getReproducoes() {
-        return reproducoes;
+    @Override 
+    public void reproduzir(){
+        super.reproduzir();
+        reproducoes++;
     }
 
-    public void reproduzir() {
-        reproducoes++;
+    public int getReproducoes() {
+        return reproducoes;
     }
 
     public String getDuracaoFormatada() {
@@ -47,8 +47,6 @@ public class Musica extends Conteudo {
 
     @Override
     public String toString() {
-        return "[" + getId() + "] " + getTitulo()
-                + " (" + getDuracaoSegundos() + "s)"
-                + "Álbum: " + getAlbum() + " - " + getArtista();
+        return super.toString() + "Álbum: " + getAlbum() + " - " + getArtista();
     }
 }

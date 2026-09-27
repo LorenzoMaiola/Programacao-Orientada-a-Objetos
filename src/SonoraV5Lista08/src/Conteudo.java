@@ -1,17 +1,16 @@
-package SonoraV5Lista08.src;
-
 public class Conteudo {
-    private static int id = 0;
+    private static int contador = 0;
     private String titulo;
     private int duracaoSegundos;
-
+    private int id;
+    
     public Conteudo(String titulo, int duracaoSegundos){
         setTitulo(titulo);
         setDuracaoSegundos(duracaoSegundos);
-        id++;
+        this.id = ++contador;
     }
 
-    protected static int getId(){
+    public int getId(){
         return id;
     }
 
@@ -41,7 +40,7 @@ public class Conteudo {
         System.out.println("Reproduzindo: " + toString());
     }
 
-     @Override 
+    @Override
     public String toString() { 
         return "[" + getId() + "] " + titulo 
              + " (" + duracaoSegundos + "s)"; 

@@ -1,14 +1,14 @@
-package SonoraV5Lista08.src;
-
 public class Podcast extends Conteudo {
 
     private Usuario apresentador;
     private int numeroEpisodio;
+    private int reproducoes;
 
     public Podcast(String titulo, int duracaoSegundos, Usuario apresentador, int numeroEpisodio) {
         super(titulo, duracaoSegundos);
         setApresentador(apresentador);
         setNumeroEpisodio(numeroEpisodio);
+        this.reproducoes = 0;
     }
 
     public Usuario getApresentador() {
@@ -30,11 +30,20 @@ public class Podcast extends Conteudo {
 
     }
 
+    public int getReproducoes(){
+        return reproducoes;
+    }
+
+    @Override 
+    public void reproduzir(){
+        super.reproduzir();
+        reproducoes++;
+    }
+
     @Override
     public String toString() {
-        return "[" + getId() + "] " + getTitulo()
-                + " (" + getDuracaoSegundos() + "s)"
-                + "Apresentado por: " + getApresentador()
+        return super.toString() + "Apresentado por: "
+                + getApresentador().getNome()
                 + "Episódio: " + getNumeroEpisodio();
     }
 

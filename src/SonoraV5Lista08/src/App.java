@@ -1,5 +1,3 @@
-package SonoraV5Lista08.src;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -48,6 +46,10 @@ public class App {
                         break;
                     case 10:
                         cadastrarPodcast(scanner, plataforma);
+                        break;
+                    case 11:
+                        reproduzirPodcast(scanner, plataforma);
+                        break;
                     case 0:
                         continuar = false;
                         break;
@@ -73,6 +75,7 @@ public class App {
         System.out.println("8 - Seguir um usuário");
         System.out.println("9 - Deixar de seguir um usuário");
         System.out.println("10 - Cadastrar um podcast");
+        System.out.println("11 - Reproduzir um podcast");
         System.out.println("0 - Sair");
         System.out.print("Escolha uma opção: ");
     }
@@ -80,6 +83,8 @@ public class App {
     private static void cadastrarMusica(Scanner scanner, Plataforma plataforma) {
         System.out.print("Título: ");
         String titulo = scanner.nextLine();
+        System.out.println("Álbum: ");
+        String album = scanner.nextLine();
         System.out.print("Artista: ");
         String artista = scanner.nextLine();
         System.out.print("Duração (segundos): ");
@@ -87,9 +92,9 @@ public class App {
         scanner.nextLine();
 
         try {
-            Musica musica = new Musica(titulo, duracao, artista);
+            Musica musica = new Musica(titulo, duracao, album, artista);
             plataforma.cadastrarMusica(musica);
-            System.out.println("Música cadastrada com id " + Conteudo.getId());
+            System.out.println("Música cadastrada com id " + musica.getId());
         } catch (IllegalArgumentException e) {
             System.out.println("Não foi possível cadastrar a música!" + e.getMessage());
 
@@ -205,7 +210,7 @@ public class App {
     }
 
     private static String formatarMusica(Musica m) {
-        return "[" + Conteudo.getId() + "] " + m.getTitulo() + " - " + m.getArtista()
+        return "[" + m.getId() + "] " + m.getTitulo() + " - " + m.getArtista()
                 + " (" + m.getDuracaoFormatada() + ") | reproduções: " + m.getReproducoes();
     }
 
@@ -248,25 +253,43 @@ public class App {
             System.out.println("Ocorreu um erro! Verifique se os id's informados pertencem à algum usuário!");
         }
     }
-    
-    private static void cadastrarPodcast(Scanner scanner, Plataforma plataforma){
-       try{
-        System.out.println("Insita o título do podcast: ");
-        String titulo = scanner.next();
-        System.out.println("Insira a duração do podcast: ");
-        int duracaoSegundos = scanner.nextInt();
-        System.out.println("Insira id do apresentador do podcast: ");
-        int idApresentador = scanner.nextInt();
-        Usuario apresentador = null;//metodo de buscar usuario por id;
-        System.out.println("Insira o número do episódio: ");
-        int numeroEpisodio = scanner.nextInt();
-        
-        Podcast podcast = new Podcast(titulo, duracaoSegundos, apresentador, numeroEpisodio);
-       }catch(IllegalArgumentException e){
+
+    private static void cadastrarPodcast(Scanner scanner, Plataforma plataforma) {
+        try {
+            System.out.println("Insita o título do podcast: ");
+            String titulo = scanner.next();
+            System.out.println("Insira a duração do podcast: ");
+            int duracaoSegundos = scanner.nextInt();
+            System.out.println("Insira id do apresentador do podcast: ");
+            int idApresentador = scanner.nextInt();
+            Usuario apresentador = plataforma.getUsuarioPorId(idApresentador);
+            System.out.println("Insira o número do episódio: ");
+            int numeroEpisodio = scanner.nextInt();
+            scanner.nextLine();
+            
+            Podcast podcast = new Podcast(titulo, duracaoSegundos, apresentador, numeroEpisodio);
+            plataforma.cadastrarPodcast(podcast);
+            System.out.println("Podcast cadastrado com sucesso!");
+            System.out.println(podcast);
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-       } catch(InputMismatchException e){
-        System.out.println("Caracter inválido!" + e.getMessage() );
-       }
+        } catch (InputMismatchException e) {
+            System.out.println("Caracter inválido!" + e.getMessage());
+        } catch (IllegalStateException e) {
+            System.out.println("Não foi possível encontrar o apresentador! " + e.getMessage());
+        }
     }
 
+    private static void reproduzirPodcast(Scanner scanner, Plataforma plataforma) {
+        try {
+            System.out.println("Insira o id do podcast a reproduzir: ");
+            int idPodcast = scanner.nextInt();
+            Podcast podcast = plataforma.getPodcastPorId(idPodcast);
+            podcast.reproduzir();
+        } catch (InputMismatchException e) {
+            System.out.println("Caractere inválido! " + e.getMessage());
+        } catch (IllegalStateException e) {
+            System.out.println("Podcast não encontrado! " + e.getMessage());
+        }
+    }
 }
