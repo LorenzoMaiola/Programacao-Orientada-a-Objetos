@@ -1,8 +1,4 @@
-package SonoraV5Lista08;
-
-import exemplos.heranca.Veiculo;
-import exemplos.heranca.VeiculoAereo;
-import exemplos.heranca.VeiculoTerrestre;
+package exemplos.heranca;
 
 public class App {
     public static void main(String[] args) {

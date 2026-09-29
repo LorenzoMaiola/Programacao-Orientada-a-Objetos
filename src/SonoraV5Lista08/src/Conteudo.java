@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 public class Conteudo {
     private static int contador = 0;
     private String titulo;
