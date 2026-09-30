@@ -1,3 +1,5 @@
+package SonoraV4Lista06.src;
+
 import java.util.Scanner;
 
 public class App {

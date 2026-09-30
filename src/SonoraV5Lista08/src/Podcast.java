@@ -1,3 +1,5 @@
+package SonoraV5Lista08.src;
+
 public class Podcast extends Conteudo {
 
     private Usuario apresentador;

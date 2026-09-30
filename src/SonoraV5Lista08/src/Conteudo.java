@@ -1,4 +1,4 @@
-import java.awt.Color;
+package SonoraV5Lista08.src;
 
 public class Conteudo {
     private static int contador = 0;

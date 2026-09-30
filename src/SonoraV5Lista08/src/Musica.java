@@ -1,3 +1,5 @@
+package SonoraV5Lista08.src;
+
 public class Musica extends Conteudo {
     private String artista;
     private int reproducoes;

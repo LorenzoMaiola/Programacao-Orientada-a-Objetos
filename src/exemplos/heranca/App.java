@@ -1,6 +1,7 @@
 package exemplos.heranca;
 
 public class App {
+    
     public static void main(String[] args) {
         Veiculo v = new Veiculo(50000);
         v.setAnoFabricacao(1988);   
