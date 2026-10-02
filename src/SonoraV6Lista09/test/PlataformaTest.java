@@ -66,7 +66,7 @@ public class PlataformaTest {
     @DisplayName("Buscar por id existente")
     @Test
     void buscarPorIdExistenteRetornaMusica() throws Exception {
-        resetContador(Musica.class);
+        resetContador(Conteudo.class);
 
         Plataforma plataforma = new Plataforma();
         Musica musica1 = criarMusica();
@@ -81,7 +81,7 @@ public class PlataformaTest {
     @DisplayName("Buscar por id inexistente")
     @Test
     void buscarPorIdInexistenteRetornaNull() throws Exception {
-        resetContador(Musica.class);
+        resetContador(Conteudo.class);
 
         Plataforma plataforma = new Plataforma();
         Musica musica1 = criarMusica();

@@ -1,12 +1,7 @@
-package SonoraV5Lista08.test;
 import org.junit.jupiter.api.DisplayName;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
-
-import SonoraV1Lista03.Musica;
-import SonoraV1Lista03.Usuario;
-
 import java.lang.reflect.Field;
 
 public class UsuarioTest {
@@ -35,16 +30,16 @@ public class UsuarioTest {
     @Test
     void IdsDeMusicaEUsuarioDevemSerIndependentes() throws Exception {
         resetContador(Usuario.class);
-        resetContador(Musica.class);
+        resetContador(Conteudo.class);
 
         Usuario usuario1 = new Usuario("Nome", "Email@gmail.com");
-        Musica musica1 = new Musica("Titulo", "Artista", 230);
+        Musica musica1 = new Musica("Titulo", 230, "artista", "album");
 
         Usuario usuario2 = new Usuario("Nome", "Email@gmail.com");
-        Musica musica2 = new Musica("Titulo", "Artista", 230);
+        Musica musica2 = new Musica("Titulo", 230, "artista", "album");
 
         Usuario usuario3 = new Usuario("Nome", "Email@gmail.com");
-        Musica musica3 = new Musica("Titulo", "Artista", 230);
+        Musica musica3 = new Musica("Titulo", 230, "artista", "album");
 
         assertEquals(usuario1.getId(), 1);
         assertEquals(musica1.getId(), 1);

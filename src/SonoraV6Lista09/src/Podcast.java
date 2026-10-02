@@ -2,13 +2,11 @@ public class Podcast extends Conteudo {
 
     private Usuario apresentador;
     private int numeroEpisodio;
-    private int reproducoes;
 
     public Podcast(String titulo, int duracaoSegundos, Usuario apresentador, int numeroEpisodio) {
         super(titulo, duracaoSegundos);
         setApresentador(apresentador);
         setNumeroEpisodio(numeroEpisodio);
-        this.reproducoes = 0;
     }
 
     public Usuario getApresentador() {
@@ -16,6 +14,8 @@ public class Podcast extends Conteudo {
     }
 
     public void setApresentador(Usuario apresentador) {
+        if (apresentador == null)
+            throw new IllegalArgumentException("O podcast precisa de um apresentador!");
         this.apresentador = apresentador;
     }
 
@@ -27,24 +27,18 @@ public class Podcast extends Conteudo {
         if (numeroEpisodio <= 0)
             throw new IllegalArgumentException("Número de episódio inválido!");
         this.numeroEpisodio = numeroEpisodio;
-
-    }
-
-    public int getReproducoes(){
-        return reproducoes;
-    }
-
-    @Override 
-    public void reproduzir(){
-        super.reproduzir();
-        reproducoes++;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "Apresentado por: "
+        return super.toString() + " | Apresentado por: "
                 + getApresentador().getNome()
-                + "Episódio: " + getNumeroEpisodio();
+                + " | Episódio: " + getNumeroEpisodio();
+    }
+
+    @Override
+    public String getCreditos() {
+        return "Episódio " + getNumeroEpisodio() + ", apresentado por " + getApresentador().getNome();
     }
 
 }

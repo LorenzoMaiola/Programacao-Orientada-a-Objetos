@@ -1,13 +1,11 @@
 public class Musica extends Conteudo {
     private String artista;
-    private int reproducoes;
     private String album;
 
     public Musica(String titulo, int duracaoSegundos, String album, String artista) {
         super(titulo, duracaoSegundos);
         setArtista(artista);
         setAlbum(album);
-        this.reproducoes = 0;
     }
 
     public String getArtista() {
@@ -15,20 +13,10 @@ public class Musica extends Conteudo {
     }
 
     private void setArtista(String artista) {
-        if (artista == null || artista.isBlank() || artista.isEmpty()) {
-            throw new IllegalArgumentException(" O artista não pode ser vazio");
+        if (artista == null || artista.isBlank()) {
+            throw new IllegalArgumentException("O artista não pode ser vazio");
         }
         this.artista = artista;
-    }
-
-    @Override 
-    public void reproduzir(){
-        super.reproduzir();
-        reproducoes++;
-    }
-
-    public int getReproducoes() {
-        return reproducoes;
     }
 
     public String getDuracaoFormatada() {
@@ -47,6 +35,11 @@ public class Musica extends Conteudo {
 
     @Override
     public String toString() {
-        return super.toString() + "Álbum: " + getAlbum() + " - " + getArtista();
+        return super.toString() + " | Álbum: " + getAlbum() + " - " + getArtista();
+    }
+
+    @Override
+    public String getCreditos() {
+        return getArtista() + " (" + getAlbum() + ")";
     }
 }

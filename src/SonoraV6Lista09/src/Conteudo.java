@@ -1,16 +1,20 @@
-public class Conteudo {
+public abstract class Conteudo {
     private static int contador = 0;
     private String titulo;
     private int duracaoSegundos;
     private int id;
-    
-    public Conteudo(String titulo, int duracaoSegundos){
+    private int reproducoes;
+
+    public Conteudo(String titulo, int duracaoSegundos) {
         setTitulo(titulo);
         setDuracaoSegundos(duracaoSegundos);
         this.id = ++contador;
+        this.reproducoes = 0;
     }
 
-    public int getId(){
+    public abstract String getCreditos();
+
+    public int getId() {
         return id;
     }
 
@@ -36,15 +40,19 @@ public class Conteudo {
         this.duracaoSegundos = duracaoSegundos;
     }
 
-    public void reproduzir(){
-        System.out.println("Reproduzindo: " + toString());
+    public int getReproducoes() {
+        return reproducoes;
+    }
+
+    public final void reproduzir() {
+        reproducoes++;
+        System.out.println("Reproduzindo: " + titulo + " - " + getCreditos());
     }
 
     @Override
-    public String toString() { 
-        return "[" + getId() + "] " + titulo 
-             + " (" + duracaoSegundos + "s)"; 
-    } 
-
+    public String toString() {
+        return "[" + getId() + "] " + titulo
+                + " (" + duracaoSegundos + "s)";
+    }
 
 }

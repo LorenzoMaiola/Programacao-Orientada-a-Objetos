@@ -7,11 +7,13 @@ public class Usuario {
     private String nome;
     private String email;
     private ArrayList<Usuario> seguindo;
+    private Plano plano;
 
     public Usuario(String nome, String email) {
         setNome(nome);
         setEmail(email);
         seguindo = new ArrayList<>();
+        this.plano = new PlanoGratuito();
         this.id = ++contador;
     }
 
@@ -63,6 +65,16 @@ public class Usuario {
         } else {
             throw new IllegalArgumentException("Não é possível deixar de seguir a si mesmo!");
         }
+    }
+
+    public Plano getPlano() {
+        return plano;
+    }
+
+    public void assinar(Plano novoPlano) {
+        if (novoPlano == null)
+            throw new IllegalArgumentException("O plano não pode ser nulo!");
+        this.plano = novoPlano;
     }
 
     public int getQuantidadeSeguindo() {

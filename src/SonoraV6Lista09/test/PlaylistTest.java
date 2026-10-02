@@ -19,9 +19,8 @@ public class PlaylistTest {
 
     // metodo de criar musicas para metodo da plaulist
     Musica criarMusica() {
-        return new Musica("Titulo", "Artista", 120);
+        return new Musica("titulo" ,120, "teste","Queen");
     }
-
     //PL03
     
     @DisplayName("Adicionar musica em playlist com espaco disponivel")
@@ -62,9 +61,9 @@ public class PlaylistTest {
     @DisplayName("Indice valido no meio da playlist devolve a musica certa")
     @Test
     void indiceValidoDevolveMusicaCerta(){
-        Musica musica1 = new Musica("Titulo", "artista", 120);
-        Musica musica2 = new Musica("Titulo", "artista", 120);
-        Musica musica3 = new Musica("Titulo", "artista", 120);
+        Musica musica1 = new Musica("Titulo", 120, "artista", "album");
+        Musica musica2 = new Musica("Titulo", 120, "artista", "album");
+        Musica musica3 = new Musica("Titulo", 120, "artista", "album");
 
         Playlist playlist = new Playlist("Playlist", usuario);
         playlist.adicionar(musica1);

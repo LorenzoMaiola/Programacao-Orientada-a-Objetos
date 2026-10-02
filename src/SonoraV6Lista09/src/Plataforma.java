@@ -1,5 +1,5 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Plataforma {
 
@@ -53,6 +53,10 @@ public class Plataforma {
             }
         }
         return null;
+    }
+
+    public List<Musica> getMusicas() {
+        return new ArrayList<>(acervo);
     }
 
     public int getTotalMusicas() {
