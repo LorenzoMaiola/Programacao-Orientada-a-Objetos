@@ -1,6 +1,5 @@
 package SonoraV5Lista08.src;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Plataforma {
@@ -8,10 +7,11 @@ public class Plataforma {
     private ArrayList<Musica> acervo;
     private int totalMusicas;
     private ArrayList<Podcast> episodios;
+    
     private int totalPodcasts;
     private ArrayList<Usuario> usuarios;
     private int totalUsuarios;
-
+    
     public Plataforma() {
         this.acervo = new ArrayList<>();
         this.totalMusicas = 0;
@@ -20,7 +20,7 @@ public class Plataforma {
         this.episodios = new ArrayList<>();
         this.totalPodcasts = 0;
     }
-
+    
     public boolean cadastrarMusica(Musica musica) {
         if (musica == null) {
             return false;
@@ -29,7 +29,7 @@ public class Plataforma {
         totalMusicas++;
         return true;
     }
-
+    
     public boolean cadastrarUsuario(Usuario usuario) {
         if (usuario == null) {
             return false;
@@ -38,7 +38,7 @@ public class Plataforma {
         totalUsuarios++;
         return true;
     }
-
+    
     public Musica buscarMusicaPorId(int id) {
         for (int i = 0; i < totalMusicas; i++) {
             if (acervo.get(i).getId() == id) {
@@ -47,7 +47,7 @@ public class Plataforma {
         }
         return null;
     }
-
+    
     public Musica buscarMusica(String titulo) {
         for (int i = 0; i < totalMusicas; i++) {
             if (acervo.get(i).getTitulo().equalsIgnoreCase(titulo)) {
@@ -56,15 +56,19 @@ public class Plataforma {
         }
         return null;
     }
-
+    
     public int getTotalMusicas() {
         return totalMusicas;
     }
-
+    
     public int getTotalUsuarios() {
         return totalUsuarios;
     }
-
+    
+    public int getTotalPodcasts() {
+        return totalPodcasts;
+    }
+    
     public Usuario getUsuarioPorId(int id) {
         for (int i = 0; i < usuarios.size(); i++) {
             Usuario usuario = usuarios.get(i);
