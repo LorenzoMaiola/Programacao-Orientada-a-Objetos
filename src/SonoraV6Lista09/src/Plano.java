@@ -11,8 +11,6 @@ public abstract class Plano {
 
     public abstract double calcularMensalidade();
 
-    // final: o formato do resumo é o mesmo para qualquer plano;
-    // o que muda de um plano para outro é só o cálculo da mensalidade.
     public final String resumo() {
         return nome + ": R$ " + calcularMensalidade()
                 + " por mes, " + maxDispositivos + " dispositivo(s)";
