@@ -41,4 +41,12 @@ public class Podcast extends Conteudo {
         return "Episódio " + getNumeroEpisodio() + ", apresentado por " + getApresentador().getNome();
     }
 
+    //metodo da interface
+    @Override
+    public String duracaoFormatada() {
+
+        int minutos = getDuracaoSegundos() / 60;
+        int segundos = getDuracaoSegundos() % 60;
+        return String.format("%02d:%02d", minutos, segundos);
+    }
 }

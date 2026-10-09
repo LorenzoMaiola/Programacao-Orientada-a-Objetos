@@ -1,4 +1,4 @@
-public abstract class Conteudo {
+public abstract class Conteudo implements Temporizador{
     private static int contador = 0;
     private String titulo;
     private int duracaoSegundos;

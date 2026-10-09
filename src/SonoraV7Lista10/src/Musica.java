@@ -19,12 +19,6 @@ public class Musica extends Conteudo {
         this.artista = artista;
     }
 
-    public String getDuracaoFormatada() {
-        int minutos = getDuracaoSegundos() / 60;
-        int segundos = getDuracaoSegundos() % 60;
-        return String.format("%02d:%02d", minutos, segundos);
-    }
-
     public String getAlbum() {
         return album;
     }
@@ -41,5 +35,13 @@ public class Musica extends Conteudo {
     @Override
     public String getCreditos() {
         return getArtista() + " (" + getAlbum() + ")";
+    }
+
+    //metodo da interface
+    @Override
+    public String duracaoFormatada() {
+        int minutos = getDuracaoSegundos() / 60;
+        int segundos = getDuracaoSegundos() % 60;
+        return String.format("%02d:%02d", minutos, segundos);
     }
 }
