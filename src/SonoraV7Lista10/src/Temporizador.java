@@ -1,4 +1,4 @@
 public interface Temporizador {
     
-    String duracaoFormatada(int duracaoSegundos);
+    String duracaoFormatada();
 }

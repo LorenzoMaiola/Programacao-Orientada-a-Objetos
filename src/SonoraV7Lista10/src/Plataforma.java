@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Plataforma {
 
     private int totalMusicas;
-    private ArrayList<Conteudo> conteudos;
+    private ArrayList<Conteudo> acervo;
     private int totalPodcasts;
     private ArrayList<Usuario> usuarios;
     private int totalUsuarios;
@@ -12,7 +12,7 @@ public class Plataforma {
         this.totalMusicas = 0;
         this.usuarios = new ArrayList<>();
         this.totalUsuarios = 0;
-        this.conteudos = new ArrayList<>();
+        this.acervo = new ArrayList<>();
         this.totalPodcasts = 0;
     }
 
@@ -20,7 +20,7 @@ public class Plataforma {
         if (musica == null) {
             return false;
         }
-        conteudos.add(musica);
+        acervo.add(musica);
         totalMusicas++;
         return true;
     }
@@ -36,8 +36,8 @@ public class Plataforma {
 
     public Conteudo buscarMusicaPorId(int id) {
         for (int i = 0; i < totalMusicas; i++) {
-            if (conteudos.get(i).getId() == id) {
-                return conteudos.get(i);
+            if (acervo.get(i).getId() == id) {
+                return acervo.get(i);
             }
         }
         return null;
@@ -45,8 +45,8 @@ public class Plataforma {
 
     public Conteudo buscarMusica(String titulo) {
         for (int i = 0; i < totalMusicas; i++) {
-            if (conteudos.get(i).getTitulo().equalsIgnoreCase(titulo)) {
-                return conteudos.get(i);//assim funciona ou preciso fazer cast de Musica?
+            if (acervo.get(i).getTitulo().equalsIgnoreCase(titulo)) {
+                return acervo.get(i);//assim funciona ou preciso fazer cast de Musica?
             }
         }
         return null;
@@ -79,15 +79,15 @@ public class Plataforma {
         if (podcast == null) {
             return false;
         }
-        conteudos.add(podcast);
+        acervo.add(podcast);
         totalPodcasts++;
         return true;
     }
 
-    public Podcast getPodcastPorId(int id) {
-        for (int i = 0; i < conteudos.size(); i++) {
-            Podcast podcast = (Podcast)conteudos.get(i);//esta certo assim?
-            if (conteudos.get(i).getId() == id)
+    public Conteudo getPodcastPorId(int id) {
+        for (int i = 0; i < acervo.size(); i++) {
+            Conteudo podcast = (Podcast)acervo.get(i);//esta certo assim?
+            if (acervo.get(i).getId() == id)
                 return podcast;
         }
         throw new IllegalStateException("Podcast com id " + id + " não cadastrado!");
