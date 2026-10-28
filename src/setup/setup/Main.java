@@ -1,6 +1,6 @@
 package setup.setup;
 
-public class Principal {
+public class Main {
     public static void main(String[] args) {
         
         // O contador termina em 4, e não 3, porque a Montagem inválida chama
